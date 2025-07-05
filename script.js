@@ -6,21 +6,21 @@ const form002 = document.querySelector("#form002");
 form001.onsubmit = (e) => {
 	e.preventDefault();
 	const NoOfSubjectsI = parseInt(document.querySelector("#NoOfSubjects").value);
-	localStorage.setItem("NoOfSubjectsI", JSON.stringify(NoOfSubjectsI));
-
 	const noOfLabsI = parseInt(document.querySelector("#noOfLabs").value);
+
+	localStorage.setItem("NoOfSubjectsI", JSON.stringify(NoOfSubjectsI));
 	localStorage.setItem("NoOfLabsI", JSON.stringify(noOfLabsI));
+
+	console.log(
+		JSON.parse(localStorage.getItem("NoOfSubjectsI")) +
+			" " +
+			JSON.parse(localStorage.getItem("NoOfLabsI")),
+	);
 
 	if (!NoOfSubjectsI || !noOfLabsI) {
 		alert("invalid number");
 	}
-	if (
-		JSON.parse(localStorage.getItem("NoOfSubjectsI")) ||
-		JSON.parse(localStorage.getItem("NoOfLabsI"))
-	) {
-		NoOfSubjectsI = JSON.parse(localStorage.getItem("NoOfSubjectsI"));
-		noOfLabsI = JSON.parse(localStorage.getItem("NoOfLabsI"));
-	}
+
 	console.log(NoOfSubjectsI + " " + noOfLabsI);
 	addInputs(form002, NoOfSubjectsI, noOfLabsI);
 	document.querySelector("#form001 button").disabled = true;
