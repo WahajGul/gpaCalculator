@@ -1,12 +1,14 @@
 // const inputs = [];
 const loadPrev = document.querySelector("#loadPrevious");
 
-const NoOfSubjectsI = parseInt(document.querySelector("#NoOfSubjects").value);
-const noOfLabsI = parseInt(document.querySelector("#noOfLabs").value);
 const form002 = document.querySelector("#form002");
 
 form001.onsubmit = (e) => {
 	e.preventDefault();
+	const NoOfSubjectsI = parseInt(document.querySelector("#NoOfSubjects").value);
+	const noOfLabsI = parseInt(document.querySelector("#noOfLabs").value);
+	if (!NoOfSubjectsI || !noOfLabsI) alert("invalid number");
+
 	console.log(NoOfSubjectsI + " " + noOfLabsI);
 	addInputs(form002, NoOfSubjectsI, noOfLabsI);
 	document.querySelector("#form001 button").disabled = true;
