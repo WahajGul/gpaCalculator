@@ -1,4 +1,4 @@
-const inputs = [];
+// const inputs = [];
 const loadPrev = document.querySelector("#loadPrevious");
 
 const NoOfSubjectsI = parseInt(document.querySelector("#NoOfSubjects").value);
