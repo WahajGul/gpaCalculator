@@ -17,6 +17,11 @@ h1 {
     margin-bottom: 1em;
 }
 
+p {
+    font-weight: 100;
+    font-size: 0.8rem;
+}
+
 div.container {
     margin: 3%;
     display: flex;
@@ -90,4 +95,25 @@ th,
 td {
     border: 1px solid black;
     border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+#genPdfBtn {
+    cursor: pointer;
+}
+
+
+#tableContainer h4 {
+    margin: 5px;
+}
+
+#tableContainer h2 {
+    align-items: center;
+    display: flex;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+#smiuLogo {
+    width: 64px;
 }

@@ -1,58 +1,72 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GPA CALCULATOR | WAHAJ GUL</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <h1>GPA CALCULATOR</h1>
-      <div class="container1">
-        <form id="form001" action="">
-          <label for="NoOfSubjects">No of Subjects</label>
-          <input type="number" name="NoOfSubjects" id="NoOfSubjects" />
+        <h1>GPA CALCULATOR</h1>
+        <div class="container1">
+            <form id="form001" action="">
+                <label for="name">Name</label>
+                <input type="text" id="name">
 
-          <label for="noOfLabs">no of labs</label>
-          <input type="number" name="noOfLabs" id="noOfLabs" />
 
-          <button type="submit">Submit</button>
-        </form>
-        <button id="loadPrevious">Load Previous</button>
-      </div>
-      <div class="container01">
-        <h1>Enter Data</h1>
-        <form action="" id="form002">
-          <h4>Name</h4>
-          <h4>Grade(A,B+)</h4>
-          <h4>Credit Hour</h4>
-          <!-- <input type="text" placeholder="Name" /> -->
-          <!-- <input type="text" placeholder="Grade" /> -->
-          <!-- <input type="number" placeholder="CR" /> -->
-        </form>
-      </div>
-      <!-- <div class="container02"> -->
-      <!-- <table> -->
-      <!--   <thead> -->
-      <!--     <tr> -->
-      <!--       <th>Name</th> -->
-      <!--       <th>Grade</th> -->
-      <!--       <th>CR</th> -->
-      <!--       <th>GP</th> -->
-      <!--     </tr> -->
-      <!--   </thead> -->
-      <!--   <tbody> -->
-      <!--     <tr> -->
-      <!--       <td>ICT</td> -->
-      <!--       <td>A-</td> -->
-      <!--       <td>2.00</td> -->
-      <!--       <td>3.66 x 2.00 = 7.32</td> -->
-      <!--     </tr> -->
-      <!--   </tbody> -->
-      <!-- </table> -->
-      <!-- </div> -->
+                <label for="ID">ID</label>
+                <input type="text" id="id">
+
+                <label for="NoOfSubjects">No of Subjects</label>
+                <input type="number" name="NoOfSubjects" id="NoOfSubjects" />
+
+                <label for="noOfLabs">no of labs</label>
+                <input type="number" name="noOfLabs" id="noOfLabs" />
+
+                <button type="submit">Submit</button>
+            </form>
+            <button id="loadPrevious">Load Previous</button>
+
+            <button id="genPdfBtn" onclick="genP()" disabled>Gen PDF</button>
+            <p>only fill name and id if you want to generate a pdf</p>
+        </div>
+        <div class="container01">
+            <h1>Enter Data</h1>
+            <form action="" id="form002">
+                <h4>Name</h4>
+                <h4>Percentage(%)</h4>
+                <h4>Credit Hour</h4>
+                <!-- <input type="text" placeholder="Name" /> -->
+                <!-- <input type="text" placeholder="Grade" /> -->
+                <!-- <input type="number" placeholder="CR" /> -->
+            </form>
+        </div>
+        <!-- <div class="container02"> -->
+        <!-- <table> -->
+        <!--   <thead> -->
+        <!--     <tr> -->
+        <!--       <th>Name</th> -->
+        <!--       <th>Grade</th> -->
+        <!--       <th>CR</th> -->
+        <!--       <th>GP</th> -->
+        <!--     </tr> -->
+        <!--   </thead> -->
+        <!--   <tbody> -->
+        <!--     <tr> -->
+        <!--       <td>ICT</td> -->
+        <!--       <td>A-</td> -->
+        <!--       <td>2.00</td> -->
+        <!--       <td>3.66 x 2.00 = 7.32</td> -->
+        <!--     </tr> -->
+        <!--   </tbody> -->
+        <!-- </table> -->
+        <!-- </div> -->
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
