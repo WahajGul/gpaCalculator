@@ -2,7 +2,13 @@
 const loadPrev = document.querySelector("#loadPrevious");
 
 const form002 = document.querySelector("#form002");
-
+document.addEventListener("DOMContentLoaded", () => {
+	if (JSON.parse(localStorage.getItem("marksTable"))) {
+		loadPrev.disabled = false;
+	} else {
+		loadPrev.disabled = true;
+	}
+});
 const genP = () => {
 	console.log("gen Pdf event");
 	const element = document.getElementById("tableContainer");
@@ -166,6 +172,7 @@ loadPrev.onclick = () => {
 		document.querySelector("#genPdfBtn").disabled = false;
 	} else {
 		alert("not available");
+		return;
 	}
 };
 
