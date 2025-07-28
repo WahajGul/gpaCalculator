@@ -107,13 +107,19 @@ td {
     margin: 5px;
 }
 
-#tableContainer h2 {
+#logo {
+    display: flex;
+    justify-content: center;
+}
+
+#logo h2 {
     align-items: center;
     display: flex;
     text-align: center;
     margin-bottom: 2vh;
+    font-size: 1.0rem;
 }
 
 #smiuLogo {
-    width: 64px;
+    width: 128px;
 }

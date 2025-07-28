@@ -9,8 +9,8 @@ const genP = () => {
 	const options = {
 		margin: 10,
 		filename: "my_document.pdf",
-		image: { type: "jpeg", quality: 0.98 },
-		html2canvas: { scale: 2 },
+		image: { type: "jpg", quality: 0.98 },
+		html2canvas: { useCORS: true, scale: 2 },
 		jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
 	};
 	html2pdf().from(element).set(options).save();
@@ -252,11 +252,11 @@ function checkNameAndID() {
 	let id = document.getElementById("id");
 	if (name.value && id.value) {
 		return ` 
-    <h2>
+    <div id="logo">
 
-    <img id="smiuLogo" src="https://www.smiu.edu.pk/themes/smiu/images/13254460_710745915734761_8157428650049174152_n.png"/>
-            Sindh Mederssatul Islam University
-            </h2>
+    <img id="smiuLogo" src="logo.jpg"/>
+        <h2>Sindh Mederssatul Islam University</h2>
+            </div>
     <h4>Name : ${name.value} </h4>
     <h4>ID : ${id.value} </h4>
     <h4>Date : ${new Date()} </h4>
