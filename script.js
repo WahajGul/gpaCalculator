@@ -1,7 +1,10 @@
 // const inputs = [];
 const loadPrev = document.querySelector("#loadPrevious");
 
+// form for marks input
 const form002 = document.querySelector("#form002");
+
+// checking local storage for previous data and enabling load previous button if exist
 document.addEventListener("DOMContentLoaded", () => {
 	if (JSON.parse(localStorage.getItem("marksTable"))) {
 		loadPrev.disabled = false;
@@ -9,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		loadPrev.disabled = true;
 	}
 });
+
+// PDF Generate function
 const genP = () => {
 	console.log("gen Pdf event");
 	const element = document.getElementById("tableContainer");
@@ -21,6 +26,8 @@ const genP = () => {
 	};
 	html2pdf().from(element).set(options).save();
 };
+
+// Form to dynamically add input tags based on number of subjects and labs
 
 form001.onsubmit = (e) => {
 	e.preventDefault();
@@ -54,6 +61,8 @@ form001.onsubmit = (e) => {
 	document.querySelector("#form001 button").disabled = true;
 };
 
+// Form that takes marks and names then calculate and display the marks table
+
 form002.onsubmit = (e) => {
 	e.preventDefault();
 	const g = objFromInputs(
@@ -64,6 +73,8 @@ form002.onsubmit = (e) => {
 	addTable(g);
 	document.querySelector("#genPdfBtn").disabled = false;
 };
+
+// Function to dynamically add input tags in form002 based on no of subjects and labs
 
 const addInputs = (form, NoOfSubjects, noOfLabs) => {
 	for (i = 0; i < NoOfSubjects; i++) {
@@ -114,6 +125,8 @@ const addInputs = (form, NoOfSubjects, noOfLabs) => {
 	subBtn.textContent = "Calculate";
 	form.appendChild(subBtn);
 };
+
+// Function that takes array of objects and displays the marks table
 
 const addTable = (g) => {
 	console.log(g);
@@ -166,6 +179,8 @@ const addTable = (g) => {
     `;
 };
 
+// load prevous button : checks local storage and load the previously inputted data
+
 loadPrev.onclick = () => {
 	if (JSON.parse(localStorage.getItem("marksTable"))) {
 		addTable(JSON.parse(localStorage.getItem("marksTable")));
@@ -176,6 +191,23 @@ loadPrev.onclick = () => {
 	}
 };
 
+/* this Function takes array of input elements (from form002) and converts it into array of objetcs
+ [ <input type="text" id="subName0"/>,<input type="number" id="subMarks0"/>,<input type="number" id="subCr0"/>]
+ to 
+ [
+	    {
+			name: array[i].value,
+			marks: marks,
+			grade: grade,
+			gradeValue: gradeToNumber(grade),
+			gradepoint: gradeToNumber(grade) * parseInt(array[i + 2].value),
+			cr: parseInt(array[i + 2].value),
+		};
+]
+
+using loop each iteration we take 3 elements (i,i+1,i+2) first element is name  second is marks and third is credit hour
+
+*/
 const objFromInputs = (array) => {
 	console.log(array);
 	const temp = [];
@@ -194,6 +226,8 @@ const objFromInputs = (array) => {
 	}
 	return temp;
 };
+
+// Function to convert grade (A,B-,C) to grade point to Calculate GPA
 
 function gradeToNumber(grade) {
 	switch (grade) {
@@ -225,6 +259,8 @@ function gradeToNumber(grade) {
 	}
 }
 
+// Function to convert marks to grade using cms grade scale table
+
 function marksToGrade(marks) {
 	if (marks >= 91) {
 		return "A";
@@ -253,6 +289,8 @@ function marksToGrade(marks) {
 		return "F";
 	}
 }
+
+// this Function chekcs if name and id input tag is empty if empty disable generate pdf button
 
 function checkNameAndID() {
 	let name = document.getElementById("name");
